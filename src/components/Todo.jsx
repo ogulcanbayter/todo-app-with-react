@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { AiOutlineSortAscending } from "react-icons/ai";
+import { AiOutlineSortDescending } from "react-icons/ai";
 
 const Todo = () => {
   const [todo, setTodo] = useState("");
@@ -12,6 +14,7 @@ const Todo = () => {
 
   const deleteTodo = (i) => {
     setTodos((todos) => todos.filter((todo, index) => index !== i));
+    // document.getElementById("todoId").classList.add("animate-pulse-out");
   };
 
   // const sortTodo = (e) => {
@@ -53,10 +56,11 @@ const Todo = () => {
               : setTodos((todos) => todos.sort((a, b) => a.localeCompare(b)));
           }}
           disabled={!todos.length}
-          className="rounded w-16 p-2 text-sm bg-green-700 text-white h-8 flex justify-center items-center"
+          className="rounded min-w-16 p-2 gap-1 text-sm bg-green-700 text-white h-8 flex justify-center items-center"
           type="submit"
         >
-          Sırala
+          <span>Sort</span>
+          {isTrue ? <AiOutlineSortAscending /> : <AiOutlineSortDescending />}
         </button>
       </form>
 
@@ -64,7 +68,8 @@ const Todo = () => {
         {todos.map((todo, index) => (
           <li
             key={index}
-            className="flex justify-between items-center p-3 rounded bg-blue-100 text-blue-600 text-sm"
+            id="todoId"
+            className="flex justify-between items-center p-3 rounded bg-blue-100 text-blue-600 text-sm animate-pulse-custom"
           >
             <span className="text-start break-words">{todo}</span>
             <button

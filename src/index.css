@@ -48,3 +48,26 @@ table {
 .App {
 	text-align: center;
 }
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes pulseOut {
+    0% {
+        opacity: 1;
+    }
+	100% {
+		opacity: 0;
+	}
+}
+.animate-pulse-custom {
+    animation: pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1) alternate;
+}
+.animate-pulse-out {
+    animation: pulseOut 0.5s cubic-bezier(0.4, 0, 0.6, 1) alternate;
+}
